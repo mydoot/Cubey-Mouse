@@ -21,6 +21,8 @@ class Smiley extends Phaser.Scene {
         
         this.counter = 0;
         this.smileType = 'Smile';
+
+        //new InputManager(game, config)
     }
 
     // Use preload to load art and sound assets before the scene starts running.
@@ -58,6 +60,17 @@ class Smiley extends Phaser.Scene {
         // Since sprites are visible when created and we only want one smile to be shown
         // at a time, make the "dimple" smile not visible to start.
         my.sprite.dimple.visible = false;
+
+        my.MKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+
+
+         
+        my.MKey.on('down', (key, event) => {
+            this.scene.start("mouseSmiley");
+
+        });
+
+       
     }
 
     update() {
